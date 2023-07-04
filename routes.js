@@ -11,5 +11,6 @@ const register = require('./src/controllers/register');
 route.get('/', home.pagInicialGet);
 route.get('/map', map.pagMapGet);
 route.get('/register', register.pagRegisterGet);
+route.post('/register', register.userInsert)
  
 module.exports = route;

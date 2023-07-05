@@ -5,7 +5,7 @@ module.exports =
 {
     async pagRegisterGet(req, res)
     {
-        res.render('../views/register-view');
+        res.render('../views/register-view',{user:''});
     },
 
     async userInsert(req, res)

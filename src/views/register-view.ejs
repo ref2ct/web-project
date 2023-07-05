@@ -31,46 +31,49 @@
         </div>
     </header>
 
-    <article>
-        <div>
-            <form action="" method="post">
-                <div>
-                    <h1>Cadastrar endereço</h1>
-                    <label for="edv">EDV: </label>
-                    <input type="number" name="edv">
-                    <label for="nome">Nome: </label>
-                    <input type="text" name="nome">
-                    <label for="rua">Rua: </label>
-                    <input type="text" name="rua">
-                    <label for="numero">Número: </label>
-                    <input type="number" name="numero">
-                    <label for="bairro">Bairro: </label>
-                    <input type="text" name="bairro">
-                    <label for="contato">Telefone: </label>
-                    <input type="text" name="contato">
-                    <label for="e-mail">E-mail: </label>
-                    <input type="email" name="email">
-                    <label for="horario">Horário: </label>
-                    <input type="datetime" name="horario">
+    <%console.log(user)%>
+        <article>
+            <div>
+                <form action="<%=user?'/edit':'/'%>" method="post">
                     <div>
-                        <button type="submit" class="">Cadastrar</button>
+                        <h1>Cadastrar endereço</h1>
+                        <label for="edv">EDV: </label>
+                        <input type="number" name="edv" value="<%=user?user.EDV :''%>">
+                        <label for="nome">Nome: </label>
+                        <input type="text" name="nome" value="<%=user?user.Nome :''%>">
+                        <label for="rua">Rua: </label>
+                        <input type="text" name="rua" value="<%=user?user.Rua :''%>">
+                        <label for="numero">Número: </label>
+                        <input type="number" name="numero" value="<%=user?user.Número :''%>">
+                        <label for="bairro">Bairro: </label>
+                        <input type="text" name="bairro" value="<%=user?user.Bairro :''%>">
+                        <label for="contato">Telefone: </label>
+                        <input type="text" name="contato" value="<%=user?user.Telefone :''%>">
+                        <label for="e-mail">E-mail: </label>
+                        <input type="email" name="email" value="<%=user?user.Email :''%>">
+                        <label for="horario">Horário: </label>
+                        <input type="datetime" name="horario" value="<%=user?user.Horario :''%>">
+                        <div>
+                            <button type="submit" class="">Cadastrar</button>
+                        </div>
                     </div>
-                </div>
-            </form>
-        </div>
-    </article>
+                </form>
+            </div>
+        </article> 
 
     <aside>
         <figure>
             <section class="modal hidden" id="modal-edit">
-                <div class="flex">
-                    <button class="btn-close">⨉</button>
-                </div>
-                <div>
-                    <h3>Editar usuário</h3>
-                </div>
-                <input type="text" id="edit" placeholder="Digite seu EDV." />
-                <button class="btn">Concluir</button>
+                <form action="/edit/search" method="post">
+                    <div class="flex">
+                        <button class="btn-close">⨉</button>
+                    </div>
+                    <div>
+                        <h3>Editar usuário</h3>
+                    </div>
+                    <input type="text" id="edit" placeholder="Digite seu EDV." name="edv"/>
+                    <button class="btn" type="submit">Concluir</button>
+                </form>
             </section>
 
             <div class=""></div>

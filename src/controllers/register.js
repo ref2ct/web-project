@@ -15,12 +15,14 @@ module.exports =
         await user.create
         (
             {
+                EDV: dados.edv,
                 Nome: dados.nome,
                 Rua: dados.rua,
                 Número: dados.numero,
                 Bairro: dados.bairro,
                 Telefone: dados.bairro,
-                Email: dados.email
+                Email: dados.email,
+                Horario: dados.horario
             }
         );
 

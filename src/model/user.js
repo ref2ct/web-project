@@ -11,6 +11,12 @@ const user = database.define('User',
         primaryKey: true
     },
 
+    EDV:
+    {
+        type: Sequelize.STRING(10),
+        allowNull: false
+    },
+
     Nome: 
     {
         type: Sequelize.STRING(50),

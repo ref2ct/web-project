@@ -1,13 +1,3 @@
-#searchColumn {  
-    position: absolute;  
-    top: 10;  
-    left: 0;  
-    width: 300px;  
-    height: 100%;  
-    background: #f8f9fa;  
-    padding: 10px;  
-    box-sizing: border-box;  
-}  
 :root {
 
     /* Fonts */
@@ -124,6 +114,25 @@ header {
     flex-shrink: 0; 
   }
 
+  .searchColumn {  
+    position: absolute;  
+    top: 10;  
+    left: 0;  
+    width: 300px;  
+    height: 100%; 
+    padding: 10px;  
+    box-sizing: border-box;  
+  }  
+  .searchColumn-dark {  
+    position: absolute;  
+    top: 10;  
+    left: 0;  
+    width: 300px;  
+    height: 100%;
+    padding: 10px;  
+    box-sizing: border-box;  
+  }  
+
   nav {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -201,7 +210,6 @@ header {
     background-color: var(--background-color-dark);
     box-shadow: 0 2px 4px var(--Bosch-Gray-50);
   }
-
 
 /* Media Queries for Tablet */
 @media only screen and (max-width: 768px) {

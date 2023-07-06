@@ -32,45 +32,52 @@
         </nav>
     </header>
     <main>
-        <article>
-            <div class="form-container">
-                <form action="" method="post">
-                    <div class="h1-container">
-                        <h1>Cadastrar endereço</h1>
-                    </div>   
-                    <label for="edv">EDV: </label>
-                    <input type="number" name="edv">
-                    <label for="nome">Nome: </label>
-                    <input type="text" name="nome">
-                    <label for="rua">Rua: </label>
-                    <input type="text" name="rua">
-                    <label for="numero">Número: </label>
-                    <input type="number" name="numero">
-                    <label for="bairro">Bairro: </label>
-                    <input type="text" name="bairro">
-                    <label for="contato">Telefone: </label>
-                    <input type="text" name="contato">
-                    <label for="e-mail">E-mail: </label>
-                    <input type="email" name="email">
-                    <label for="horario">Horário: </label>
-                    <input type="datetime" name="horario">
-                    <div class="submit-btn">
-                        <button type="submit" class="">Cadastrar</button>
+        <div class="h1-container">
+            <h1>Cadastrar endereço</h1>
+        </div>
+        <div class="columns">
+            <article>
+                <div class="form-container">
+                    <form action="" method="post">   
+                        <label for="nome">Nome: </label>
+                        <input type="text" name="nome">
+                        <label for="edv">EDV: </label>
+                        <input type="number" name="edv">
+                        <label for="rua">Rua: </label>
+                        <input type="text" name="rua">
+                        <div class="adress-area">
+                            <div>
+                                <label for="bairro">Bairro: </label>
+                                <input type="text" name="bairro">
+                            </div>
+                            <div>
+                                <label for="numero">Número: </label>
+                                <input type="number" name="numero">
+                            </div>
+                        </div>                        
+                        <label for="contato">Telefone: </label>
+                        <input type="text" name="contato">
+                        <label for="e-mail">E-mail: </label>
+                        <input type="email" name="email">
+                        <label for="horario">Horário: </label>
+                        <input type="datetime" name="horario">
+                        <div class="submit-btn">
+                            <button type="submit" class="">Cadastrar</button>
+                        </div>
+                    </form>
+                </div>
+            </article>
+            <aside>
+                <div class="buttons-container">
+                    <div class="editar-btn">
+                        <button class="btn btn-open" id="btn-open-delete">Deletar</button>
                     </div>
-                </form>
-            </div>
-        </article>
-
-        <aside>
-            <div class="buttons-container">
-                <div class="editar-btn">
-                    <button class="btn btn-open" id="btn-open-delete">Deletar</button>
+                    <div class="excluir-btn">
+                        <button class="btn btn-open" id="btn-open-edit">Editar</button>
+                    </div>
                 </div>
-                <div class="excluir-btn">
-                    <button class="btn btn-open" id="btn-open-edit">Editar</button>
-                </div>
-            </div>
-        </aside>
+            </aside>
+        </div>
     </main>
     <div class="modal-container hidden" id="modal-container">
         <figure>

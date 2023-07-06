@@ -1,26 +1,96 @@
 /* @import url(/public/css/global.css); */
 main {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr;
 }
-
+.columns {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding-left: 6em;
+    padding-right: 6rem;
+}
 article {
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 aside {
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
+.h1-container {
+    display: flex;
+    margin-left: 6rem;
+    padding-left: 20px;
+}
 .form-container {
     display: flex;
-    align-items: flex-start;
-    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
     width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .buttons-container {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 40vh;
     width: 100%;
-} 
+  }
+  
+  .editar-btn,
+  .excluir-btn {
+    margin-top: 0.6rem;
+    margin-bottom: 0.6rem;
+    width: 40%;
+  }
+
+  #btn-open-edit,
+  #btn-open-delete {
+    background-color: var(--background_color);
+    border: 1px solid var(--border-blue-button);
+    color: var(--border-blue-button);
+  }
+
+  #btn-open-edit:hover {
+    background-color: var(--input_selected);
+  }  
+  #btn-open-delete:hover {
+    background-color: var(--input_selected);
+  }  
+  .btn {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+
+.adress-area {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+}
+.submit-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+  
+.submit-btn button {
+    display: block;
+    text-align: center;
+    width: 40%;
+}
+
+/* Media Queries for Mobile */
+@media only screen and (max-width: 580px) {
+    
+
+}

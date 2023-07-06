@@ -1,14 +1,10 @@
 function darkMode() {
-    var element = document.body;
+    var htmlElement = document.querySelector("html");
     var logo = document.getElementById("logo");
-    var darkmodeBtn = document.getElementById("darkmode-btn");
-    var footer = document.getElementById("footer");
-    var container = document.getElementById("searchColumn");
+    var darkModeBtn = document.getElementById("darkmode-btn");
 
-
-    element.classList.toggle("dark-mode");
+    htmlElement.classList.toggle("dark_mode");
     logo.classList.toggle("logo-dark");
-    darkmodeBtn.classList.toggle("darkmode-btn-dark");
-    footer.classList.toggle("footer-dark");
-    container.classList.toggle("container-dark");
- }
+    darkModeBtn.classList.toggle("darkmode-btn-dark");
+}
+  

@@ -1,6 +1,6 @@
 /* @import url(/public/css/global.css); */
 
-.container {
+.search-container {
     position: absolute;
     width: 300px;
     height: calc(100% - 130px);
@@ -10,20 +10,7 @@
     top: 80px;
     left: 8px;
     border-radius: 10px;
-    background-color: var(--background-color);
-}
-
-.container-dark {
-    position: absolute;
-    width: 300px;
-    height: calc(100% - 130px);
-    padding: 10px;
-    box-sizing: border-box;
-    z-index: 600;
-    top: 80px;
-    left: 8px;
-    border-radius: 10px;
-    background-color: var(--background-color-dark);
+    background-color: var(--background_color);
 }
 
 .map-container {

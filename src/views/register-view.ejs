@@ -31,12 +31,13 @@
             </div>
         </nav>
     </header>
-
-    <article>
-        <div>
-            <form action="" method="post">
-                <div>
-                    <h1>Cadastrar endereço</h1>
+    <main>
+        <article>
+            <div class="form-container">
+                <form action="" method="post">
+                    <div class="h1-container">
+                        <h1>Cadastrar endereço</h1>
+                    </div>   
                     <label for="edv">EDV: </label>
                     <input type="number" name="edv">
                     <label for="nome">Nome: </label>
@@ -53,15 +54,25 @@
                     <input type="email" name="email">
                     <label for="horario">Horário: </label>
                     <input type="datetime" name="horario">
-                    <div>
+                    <div class="submit-btn">
                         <button type="submit" class="">Cadastrar</button>
                     </div>
-                </div>
-            </form>
-        </div>
-    </article>
+                </form>
+            </div>
+        </article>
 
-    <aside>
+        <aside>
+            <div class="buttons-container">
+                <div class="editar-btn">
+                    <button class="btn btn-open" id="btn-open-delete">Deletar</button>
+                </div>
+                <div class="excluir-btn">
+                    <button class="btn btn-open" id="btn-open-edit">Editar</button>
+                </div>
+            </div>
+        </aside>
+    </main>
+    <div class="modal-container hidden" id="modal-container">
         <figure>
             <section class="modal hidden" id="modal-edit">
                 <div class="flex">
@@ -75,7 +86,6 @@
             </section>
 
             <div class=""></div>
-            <button class="btn btn-open" id="btn-open-edit">Editar</button>
         </figure>
         <figure>
             <section class="modal hidden" id="modal-delete">
@@ -94,15 +104,15 @@
             </section>
 
             <div class="overlay hidden"></div>
-            <button class="btn btn-open" id="btn-open-delete">Deletar</button>
         </figure>
-    </aside>
+    </div>
+
 
     <footer class="footer" id="footer">
 
     </footer>
     <script src="js/main.js" ></script>
-    <script src="/js/modal.js"></script>
+    <script src="js/modal.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,26 @@
+/* @import url(/public/css/global.css); */
+main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+article {
+    display: flex;
+}
+aside {
+    display: flex;
+}
+
+.form-container {
+    display: flex;
+    align-items: flex-start;
+    height: 100vh;
+    width: 100%;
+}
+
+.buttons-container {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+} 

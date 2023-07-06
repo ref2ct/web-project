@@ -20,7 +20,7 @@ module.exports =
                 Rua: dados.rua,
                 Número: dados.numero,
                 Bairro: dados.bairro,
-                Telefone: dados.bairro,
+                Telefone: dados.telefone,
                 Email: dados.email,
                 Horario: dados.horario
             }

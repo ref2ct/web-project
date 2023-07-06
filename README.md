@@ -11,11 +11,11 @@ Projeto para avaliação de Web - ETS
 Importações e instalações necessárias:
 _Node installs_
 
-`npm init -y`
-`npm i express mssql sequelize nodemon ejs`
+1. `npm init -y`
+2. `npm i express mssql sequelize nodemon ejs`
 
 ### Run project
 
 ---
 
-`npm start`
+- `npm start`

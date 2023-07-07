@@ -53,6 +53,12 @@ const user = database.define('User',
         allowNull: false
     },
 
+    Horario: 
+    {
+        type:Sequelize.STRING(6),
+        allowNull: false
+    }
+
 });
 
 module.exports = user;

@@ -9,4 +9,4 @@ module.exports =
         res.redirect('/register')
     }
 
-}
+} 

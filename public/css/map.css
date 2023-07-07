@@ -2,9 +2,10 @@
 
 .search-container {
     position: absolute;
+    overflow: auto;
     width: 300px;
     height: calc(100% - 130px);
-    padding: 10px;
+    padding: 1rem;
     box-sizing: border-box;
     z-index: 600;
     top: 80px;
@@ -26,4 +27,37 @@
 .leaflet-control-container {
     position: absolute;
     right: 56px;
+}
+
+.input-container-map {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.input-container-map input {
+    margin-bottom: 1rem;
+}
+#searchButton {
+    display: block;
+    width: 100%;
+}
+
+@media only screen and (max-width: 560px) {
+    .search-container{
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .leaflet-control-zoom, 
+    .leaflet-bar, 
+    .leaflet-control {
+        display: none;
+    }
+}
+@media only screen and (max-height: 460px) {
+    .search-container {
+        overflow: auto;
+        min-height: 300px;
+    }    
+
 }

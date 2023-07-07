@@ -58,7 +58,7 @@
 /* Inputs */
   --input_selected: #004975;;
   --input_border_color: white;
-  --input_text_background: #71767c;
+  --input_text_background: #2e3033;
   --input_text_placeholder: white;
   --input_text_hover: #595e62;
 
@@ -168,6 +168,10 @@
     background-color: var(--input_selected);
     outline: none;
   }
+  
+  ::placeholder {
+    color: #71767c;
+  } 
   
   button {
     font-size: 1rem;

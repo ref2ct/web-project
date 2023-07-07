@@ -37,13 +37,18 @@
     </div>
 
     <div class="search-container" id="searchColumn">   
-        <h3>Search Address</h3>  
-        <input id="searchInput" type="text" placeholder="Enter address"><br><br>
-        <input type="number" id="radius" placeholder="Radius (km)"><br><br>
-        <button id="searchButton">Search</button><br><br>
-        <p>Filtered Coordinates:</p>  
-	    <ul id="filtered-coords"></ul>  
-    </div>  
+        <h3>Search Address</h3>
+        <div class="input-container-map">  
+            <input id="searchInput" type="text" placeholder="Enter address">
+            <input type="number" id="radius" placeholder="Radius (km)">
+            <button id="searchButton">Search</button>
+        </div>
+        <p>Filtered Coordinates:</p> 
+        <div class="filtered-container"> 
+	        <ul id="filtered-coords"></ul>  
+        </div>
+    </div> 
+     
     <div id="map"></div>
 
     <footer class="footer" id="footer">

@@ -1,10 +1,29 @@
+/* @import url(/public/css/global.css); */
+
+.search-container {
+    position: absolute;
+    width: 300px;
+    height: calc(100% - 130px);
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 600;
+    top: 80px;
+    left: 8px;
+    border-radius: 10px;
+    background-color: var(--background_color);
+}
+
 .map-container {
-    height: 80vh;
+    height: 81vh;
     width: 100%;
 }
 
 #map {
     height: 100%;
     width: 100%;
-    left: 300px;
+}
+
+.leaflet-control-container {
+    position: absolute;
+    right: 56px;
 }

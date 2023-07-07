@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/register.css">
     <link rel="stylesheet" href="/css/modal.css">
     <title>Cadastrar Carona</title>
 </head>
@@ -32,50 +32,70 @@
         </nav>
     </header>
 
-    <article>
-        <div>
-            <form action="" method="post">
-                <div>
-                    <h1>Cadastrar endereço</h1>
-                    <label for="edv">EDV: </label>
-                    <input type="number" name="edv">
-                    <label for="nome">Nome: </label>
-                    <input type="text" name="nome">
-                    <label for="rua">Rua: </label>
-                    <input type="text" name="rua">
-                    <label for="numero">Número: </label>
-                    <input type="number" name="numero">
-                    <label for="bairro">Bairro: </label>
-                    <input type="text" name="bairro">
-                    <label for="contato">Telefone: </label>
-                    <input type="text" name="contato">
-                    <label for="e-mail">E-mail: </label>
-                    <input type="email" name="email">
-                    <label for="horario">Horário: </label>
-                    <input type="datetime" name="horario">
-                    <div>
-                        <button type="submit" class="">Cadastrar</button>
+    <main>
+        <div class="h1-container">
+            <h1>Cadastrar endereço</h1>
+        </div>
+        <div class="columns">
+            <article>
+                <div class="form-container">
+                    <form action="<%=user?'/edit':'/register'%>" method="post">   
+                        <label for="nome">Nome: </label>
+                        <input type="text" name="nome" value="<%=user?user.Nome :''%>">
+                        <label for="edv" >EDV: </label>
+                        <input type="number" name="edv" value="<%=user?user.EDV :''%>">
+                        <label for="rua">Rua: </label>
+                        <input type="text" name="rua" value="<%=user?user.Rua :''%>">
+                        <div class="adress-area">
+                            <div>
+                                <label for="bairro">Bairro: </label>
+                                <input type="text" name="bairro" value="<%=user?user.Bairro :''%>">
+                            </div>
+                            <div>
+                                <label for="numero">Número: </label>
+                                <input type="number" name="numero" value="<%=user?user.Número :''%>">
+                            </div>
+                        </div>                        
+                        <label for="contato">Telefone: </label>
+                        <input type="text" name="telefone" value="<%=user?user.Telefone :''%>">
+                        <label for="e-mail">E-mail: </label>
+                        <input type="email" name="email" value="<%=user?user.Email :''%>">
+                        <label for="horario">Horário: </label>
+                        <input type="datetime" name="horario" value="<%=user?user.Horario :''%>">
+                        <div class="submit-btn">
+                            <button type="submit" class="">Cadastrar</button>
+                        </div>
+                    </form>
+                </div>
+            </article>
+            <aside>
+                <div class="buttons-container">
+                    <div class="editar-btn">
+                        <button class="btn btn-open" id="btn-open-delete">Deletar</button>
+                    </div>
+                    <div class="excluir-btn">
+                        <button class="btn btn-open" id="btn-open-edit">Editar</button>
                     </div>
                 </div>
-            </form>
+            </aside>
         </div>
-    </article>
-
-    <aside>
+    </main>
+    <div class="modal-container hidden" id="modal-container">
         <figure>
             <section class="modal hidden" id="modal-edit">
-                <div class="flex">
-                    <button class="btn-close">⨉</button>
-                </div>
-                <div>
-                    <h3>Editar usuário</h3>
-                </div>
-                <input type="text" id="edit" placeholder="Digite seu EDV." />
-                <button class="btn">Concluir</button>
+                <form action="/edit/search" method="post">
+                    <div class="flex">
+                        <button class="btn-close">⨉</button>
+                    </div>
+                    <div>
+                        <h3>Editar usuário</h3>
+                    </div>
+                    <input type="text" id="edit" placeholder="Digite seu EDV." name="edv"/>
+                    <button class="btn" type="submit">Concluir</button>
+                </form>
             </section>
 
             <div class=""></div>
-            <button class="btn btn-open" id="btn-open-edit">Editar</button>
         </figure>
         <figure>
             <section class="modal hidden" id="modal-delete">
@@ -94,14 +114,14 @@
             </section>
 
             <div class="overlay hidden"></div>
-            <button class="btn btn-open" id="btn-open-delete">Deletar</button>
         </figure>
-    </aside>
+    </div>
+
 
     <footer class="footer" id="footer">
 
     </footer>
-    <script src="js/main.js" ></script>
+    <script src="/js/main.js" ></script>
     <script src="/js/modal.js"></script>
 </body>
 

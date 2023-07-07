@@ -5,7 +5,7 @@ module.exports =
 {
     async pagRegisterGet(req, res)
     {
-        res.render('../views/register-view');
+        res.render('../views/register-view',{user:''});
     },
 
     async userInsert(req, res)
@@ -20,7 +20,7 @@ module.exports =
                 Rua: dados.rua,
                 Número: dados.numero,
                 Bairro: dados.bairro,
-                Telefone: dados.bairro,
+                Telefone: dados.telefone,
                 Email: dados.email,
                 Horario: dados.horario
             }

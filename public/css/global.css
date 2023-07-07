@@ -245,6 +245,25 @@ header {
     flex-shrink: 0; 
   }
 
+  .searchColumn {  
+    position: absolute;  
+    top: 10;  
+    left: 0;  
+    width: 300px;  
+    height: 100%; 
+    padding: 10px;  
+    box-sizing: border-box;  
+  }  
+  .searchColumn-dark {  
+    position: absolute;  
+    top: 10;  
+    left: 0;  
+    width: 300px;  
+    height: 100%;
+    padding: 10px;  
+    box-sizing: border-box;  
+  }  
+
   nav {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

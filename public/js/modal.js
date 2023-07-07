@@ -13,7 +13,6 @@
     modalContainer.classList.remove("hidden");
     modalEdit.classList.remove("hidden");
     document.body.classList.add("modal-open");
-    console.log("Oieeeee!");
   }
 
   function closeModal() {

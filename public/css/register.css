@@ -2,6 +2,7 @@
 main {
     display: grid;
     grid-template-columns: 1fr;
+    overflow: auto;
 }
 .columns {
     display: grid;
@@ -14,11 +15,12 @@ article {
     flex-direction: column;
     align-items: center;
 }
-aside {
+aside { 
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .h1-container {
     display: flex;
     margin-left: 6rem;
@@ -67,11 +69,12 @@ aside {
     display: block;
     text-align: center;
     width: 100%;
+    margin-top: 0.6rem;
   }
 
-.adress-area {
+.adress-area { 
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 2fr;
     gap: 1rem;
 }
 .submit-btn {
@@ -89,8 +92,58 @@ aside {
     width: 40%;
 }
 
-/* Media Queries for Mobile */
+.close-btn-container {
+  display: flex;
+  justify-content: end; 
+  margin: 0;
+}
+.btn-close {
+  display: block;
+  margin: 0;
+  padding: 6px;
+  height: auto;
+  width: auto;
+  background-color: var(--background_color);
+  border-color: var(--input_border_color);
+  color: var(--text_color);
+}
+.btn-close:hover {
+  background-color: var(--input_text_hover);
+}
+.modal-form-container {
+  padding: 0 1rem 1rem 1rem;
+}
+
+.modal-h-container {
+  display: flex;
+  justify-content: center;
+
+}
+
+
+@media only screen and (max-width: 768px) {
+  .columns {
+    grid-template-columns: 2fr;
+  }
+  .buttons-container {
+    display: flex ;
+    flex-direction: row;
+    justify-content: space-around;
+    height: auto;
+  }
+}
+
 @media only screen and (max-width: 580px) {
-    
+  .columns {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    margin: 0;
+  }
+  .buttons-container {
+    display: flex ;
+    flex-direction: column;
+    justify-content: space-around;
+    height: auto;
+  } 
 
 }

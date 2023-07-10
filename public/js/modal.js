@@ -13,10 +13,10 @@
     modalContainer.classList.remove("hidden");
     modalEdit.classList.remove("hidden");
     document.body.classList.add("modal-open");
-    console.log("Oieeeee!");
   }
 
-  function closeModal() {
+  function closeModal(event) {
+    event.preventDefault();
     var modalContainer = document.getElementById("modal-container");
     var modals = document.querySelectorAll(".modal");
     for (var i = 0; i < modals.length; i++) {
@@ -25,7 +25,7 @@
     modalContainer.classList.add("hidden");
     document.body.classList.remove("modal-open");
   }
-
+  
   var deleteButton = document.getElementById("btn-open-delete");
   var editButton = document.getElementById("btn-open-edit");
   var closeButton = document.querySelectorAll(".btn-close");
@@ -33,5 +33,5 @@
   deleteButton.addEventListener("click", openDeleteModal);
   editButton.addEventListener("click", openEditModal);
   for (var i = 0; i < closeButton.length; i++) {
-    closeButton[i].addEventListener("click", closeModal);
+    closeButton[i].addEventListener("click", closeModal); 
   } 

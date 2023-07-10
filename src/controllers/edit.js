@@ -40,6 +40,6 @@ module.exports = {
       where: { EDV }
     });
 
-    res.render('register-view', { user: u });
+    res.render('../views/register-view', { user: u });
   }
 };

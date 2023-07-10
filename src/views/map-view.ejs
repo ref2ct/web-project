@@ -32,19 +32,23 @@
             </div>
         </nav>
     </header>
+
+    <div class="search-container" id="searchColumn">   
+        <h3>Search Address</h3>
+        <div class="input-container-map">  
+            <input id="searchInput" type="text" placeholder="Enter address">
+            <input type="number" id="radius" placeholder="Radius (km)">
+            <button id="searchButton">Search</button>
+        </div>
+        <p>Filtered Coordinates:</p> 
+        <div class="filtered-container"> 
+	        <ul id="filtered-coords"></ul>  
+        </div>
+    </div> 
+     
     <div class="map-container">
         <div id="map"></div>
     </div>
-
-    <div class="search-container" id="searchColumn">   
-        <h3>Search Address</h3>  
-        <input id="searchInput" type="text" placeholder="Enter address"><br><br>
-        <input type="number" id="radius" placeholder="Radius (km)"><br><br>
-        <button id="searchButton">Search</button><br><br>
-        <p>Filtered Coordinates:</p>  
-	    <ul id="filtered-coords"></ul>  
-    </div>  
-    <div id="map"></div>
 
     <footer class="footer" id="footer">
 
@@ -54,7 +58,7 @@
      crossorigin=""></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>  
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>  
-    <script src="js/leaflet.js" ></script>
-    <script src="js/main.js" ></script>
+    <script src="/js/leaflet.js" ></script>
+    <script src="/js/main.js" ></script>
 </body>
 </html>

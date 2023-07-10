@@ -7,4 +7,3 @@ function darkMode() {
     logo.classList.toggle("logo-dark");
     darkModeBtn.classList.toggle("darkmode-btn-dark");
 }
-  

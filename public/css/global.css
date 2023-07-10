@@ -58,7 +58,7 @@
 /* Inputs */
   --input_selected: #004975;;
   --input_border_color: white;
-  --input_text_background: #71767c;
+  --input_text_background: #2e3033;
   --input_text_placeholder: white;
   --input_text_hover: #595e62;
 
@@ -169,6 +169,10 @@
     outline: none;
   }
   
+  ::placeholder {
+    color: #71767c;
+  } 
+  
   button {
     font-size: 1rem;
     font-weight: 400;
@@ -244,6 +248,25 @@ header {
     z-index: 1;
     flex-shrink: 0; 
   }
+
+  .searchColumn {  
+    position: absolute;  
+    top: 10;  
+    left: 0;  
+    width: 300px;  
+    height: 100%; 
+    padding: 10px;  
+    box-sizing: border-box;  
+  }  
+  .searchColumn-dark {  
+    position: absolute;  
+    top: 10;  
+    left: 0;  
+    width: 300px;  
+    height: 100%;
+    padding: 10px;  
+    box-sizing: border-box;  
+  }  
 
   nav {
     display: grid;

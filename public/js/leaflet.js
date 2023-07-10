@@ -18,23 +18,23 @@ searchButton.addEventListener('click', () => {
         const result = results[0];  
         map.setView(result.center, 16);  
         
-        // Filter addresses based on a given radius in km
-        var coords = [ [-25.575614852069705, -49.31674699174379], [-26.208648018832783, -50.11266459621588]]; // List of coordinates must come from the database
+        
+        var coords = [ [-25.575614852069705, -49.31674699174379], [-26.208648018832783, -50.11266459621588]];
         filterCoordinates(result.center.lat, result.center.lng, coords)
 
-        // Remove the last marker if it exists  
+         
         if (lastMarker) {  
             map.removeLayer(lastMarker);  
         }  
 
-        // Add a new marker and store it as the last marker  
+        
         lastMarker = L.marker(result.center).addTo(map).bindPopup(result.name || result.html || result.label).openPopup();  
         }  
     });  
 });
 
 function distance(lat1, lon1, lat2, lon2) {  
-    const R = 6371; // Earth's radius in km  
+    const R = 6371;  
     const dLat = degToRad(lat2 - lat1);  
     const dLon = degToRad(lon2 - lon1);  
       
@@ -62,7 +62,7 @@ function filterCoordinates(centerLat, centerLon, coords) {
             filteredCoords.push(coords[i]);      
         }      
     }      
-    displayFilteredCoords(filteredCoords); // Showing coordinates only for concept validation, the results must appear in a card format with informations from the driver
+    displayFilteredCoords(filteredCoords);
 }  
 
 function displayFilteredCoords(coords) {

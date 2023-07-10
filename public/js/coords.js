@@ -3,6 +3,8 @@
         numero: '',
         bairro: ''
     };
+    var latitude = '';
+    var longitude ='';
 
     function processInputs() {
         
@@ -18,8 +20,8 @@
         // ...
         //===========================================
 
-        document.getElementById("lat").value = inputs.rua;
-        document.getElementById("lon").value = inputs.numero;
+        document.getElementById("lat").value = inputs.latitude;
+        document.getElementById("lon").value = inputs.longitude;
     }
 
     // Event listeners

@@ -25,4 +25,4 @@
     // Event listeners
     document.getElementById("rua").addEventListener("input", processInputs);
     document.getElementById("numero").addEventListener("input", processInputs);
-    document.getElementById("bairro").addEventListener("input", processInputs);
+    document.getElementById("bairro").addEventListener("input", processInputs); 

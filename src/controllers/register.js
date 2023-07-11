@@ -1,29 +1,35 @@
-const database = require('../config/db');
 const user = require('../model/user');
 
 module.exports = {
-    async pagRegisterGet(req, res) {
-        res.render('../views/register-view', { user: '' });
-    },
+  async pagRegisterGet(req, res) {
+    res.render('../views/register-view', { user: '', message: false });
+  },
 
-    async userInsert(req, res) {
-        const dados = req.body;
+  async userInsert(req, res) {
+    const dados = req.body;
 
-        if (!dados.edv || !dados.nome || !dados.rua || !dados.numero || !dados.bairro || !dados.telefone || !dados.email || !dados.horario) {
-            return res.send('<script>alert("Usuário não cadastrado. Preencha todos os campos obrigatórios."); window.location.href = "/register";</script>');
-        }
+    await user.create({
+      EDV: dados.edv,
+      Nome: dados.nome,
+      Rua: dados.rua,
+      Número: dados.numero,
+      Bairro: dados.bairro,
+      Telefone: dados.telefone,
+      Email: dados.email,
+      Horario: dados.horario,
+    });
 
-        await user.create({
-            EDV: dados.edv,
-            Nome: dados.nome,
-            Rua: dados.rua,
-            Número: dados.numero,
-            Bairro: dados.bairro,
-            Telefone: dados.telefone,
-            Email: dados.email,
-            Horario: dados.horario
-        });
+    // Exibe o popup de alerta
+    // res.send(
+    //   `<script>
+    //     window.location.href = '/';
+    //     const teste = document.getElementsByClassName("teste")
+    //     teste.innerHTML = "<p> Usuário cadastrado com sucesso</p>" 
+    //     SetTimeOut(() => {window.location.href = '/';},5000)
+        
+    //   </script>`
+    //);
 
-        return res.send('<script>alert("Usuário cadastrado com sucesso."); window.location.href = "/";</script>');
-    }
-}
+    res.render('../views/index.ejs', { user: '', message:true });
+  },
+};

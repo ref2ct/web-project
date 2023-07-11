@@ -33,6 +33,15 @@
     </header>
 
     <main>
+        <div class="Alert">
+
+            <%if(message){%>
+                <p>
+                    Usuário deletado com sucesso
+                </p>     
+                <%}%>
+        </div>
+                
         <div class="h1-container">
             <h1>Cadastrar endereço</h1>
         </div>
@@ -41,27 +50,27 @@
                 <div class="form-container">
                     <form action="<%=user?'/edit':'/register'%>" method="post">   
                         <label for="nome">Nome: </label>
-                        <input type="text" name="nome" value="<%=user?user.Nome :''%>">
+                        <input type="text" name="nome" value="<%=user?user.Nome :''%>" required>
                         <label for="edv" >EDV: </label>
-                        <input type="number" name="edv" value="<%=user?user.EDV :''%>">
+                        <input type="number" name="edv" value="<%=user?user.EDV :''%>" required>
                         <label for="rua">Rua: </label>
-                        <input type="text" id="rua" name="rua" value="<%=user?user.Rua :''%>">
+                        <input type="text" id="rua" name="rua" value="<%=user?user.Rua :''%>" required>
                         <div class="adress-area">
                             <div>
                                 <label for="numero">Número: </label>
-                                <input type="number" id="numero" name="numero" value="<%=user?user.Número :''%>">
+                                <input type="number" id="numero" name="numero" value="<%=user?user.Número :''%>" required>
                             </div>
                             <div>
                                 <label for="bairro">Bairro: </label>
-                                <input type="text" id="bairro" name="bairro" value="<%=user?user.Bairro :''%>">
+                                <input type="text" id="bairro" name="bairro" value="<%=user?user.Bairro :''%>" required>
                             </div>
                         </div>                        
                         <label for="contato">Telefone: </label>
-                        <input type="text" name="telefone" value="<%=user?user.Telefone :''%>">
+                        <input type="text" name="telefone" value="<%=user?user.Telefone :''%>" required>
                         <label for="e-mail">E-mail: </label>
-                        <input type="email" name="email" value="<%=user?user.Email :''%>">
+                        <input type="email" name="email" value="<%=user?user.Email :''%>" required>
                         <label for="horario">Horário: </label>
-                        <input type="datetime" name="horario" value="<%=user?user.Horario :''%>">
+                        <input type="datetime" name="horario" value="<%=user?user.Horario :''%>" required>
 
                         <input type="hidden" name="lat" id="lat">
                         <input type="hidden" name="lon" id="lon">
@@ -113,7 +122,7 @@
                         <h3>Deletar</h3>
                     </div>
                     <form action="/delete" method="post">
-                        <input type="password" id="edv" placeholder="Digite seu EDV." name="edv"/>
+                        <input type="text" id="edv" placeholder="Digite seu EDV." name="edv"/>
                         <button class="btn" type="submit">Deletar</button>
                     </form>
                 </div>
@@ -130,6 +139,12 @@
     <script src="/js/main.js" ></script>
     <script src="/js/modal.js"></script>
     <script src="/js/coords.js"></script>
+    <script>
+        setTimeout(() => {
+            const Alert = document.querySelector(".Alert")
+            Alert.classList.add("hidden")
+        },3000)
+    </script>
 </body>
 
 </html>

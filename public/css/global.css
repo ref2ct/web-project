@@ -71,14 +71,17 @@
     transition: 0.28s ease-in;
 
   }
+  html, body {
+    height: 100%;
+  }
   
-  body{
-  
-      padding: 0px;
-      margin: 0px;
-      transition: 0.28s ease-in;
-      background-color: var(--background_color);
-  
+  body {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    margin: 0px;
+    transition: 0.28s ease-in;
+    background-color: var(--background_color);
   }
 
   .container {
@@ -329,10 +332,8 @@ header {
   } 
 
   .footer {
-    position: relative;
-    bottom: 0;
     width: 100%;
-    height: 2.5rem; 
+    height: 2.5rem;
     box-shadow: 0 2px 4px var(--pop_up_shadow);
   }
 
@@ -354,4 +355,15 @@ header {
   .logo-dark {
     width: 160px;
   }
+}
+
+@media only screen and (min-height: 776px) {
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    flex-shrink: 0;
+    height: 2.5rem;
+    box-shadow: 0 2px 4px var(--pop_up_shadow);
+  } 
 }

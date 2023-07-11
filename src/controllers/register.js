@@ -8,10 +8,15 @@ module.exports =
         res.render('../views/register-view',{user:''});
     },
 
+    /* async fillHiddenInput (req, res) {
+        
+        
+
+    }, */
+
     async userInsert(req, res)
     {
         const dados = req.body;
-
         await user.create
         (
             {
@@ -22,7 +27,9 @@ module.exports =
                 Bairro: dados.bairro,
                 Telefone: dados.telefone,
                 Email: dados.email,
-                Horario: dados.horario
+                Horario: dados.horario,
+                Latitude: dados.lat,
+                Longitude: dados.lon
             }
         );
 

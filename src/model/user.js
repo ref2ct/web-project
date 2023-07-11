@@ -57,6 +57,16 @@ const user = database.define('User',
     {
         type:Sequelize.STRING(6),
         allowNull: false
+    },
+    Latitude: 
+    {
+        type:Sequelize.STRING(16),
+        allowNull: false
+    },
+    Longitude: 
+    {
+        type:Sequelize.STRING(16),
+        allowNull: false
     }
 
 });

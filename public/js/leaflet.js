@@ -1,5 +1,5 @@
 let latLngString = '';  
-const map = L.map('map').setView([-25.53752208344801, -49.31857604852474], 15);  
+const map = L.map('map').setView([-25.536000696659993, -49.325009770874225], 15);  
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {  
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'  
 }).addTo(map);  
@@ -13,7 +13,7 @@ let lastMarker = null;
 searchButton.addEventListener('click', () => {  
     geocoder.geocode(searchInput.value, (results) => {  
         if (results.length === 0) {  
-        alert('Address not found');  
+        alert('Endereço não encontrado');  
         } else {  
         const result = results[0];  
         map.setView(result.center, 16);  

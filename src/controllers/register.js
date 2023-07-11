@@ -1,18 +1,9 @@
-const database = require('../config/db');
 const user = require('../model/user');
 
-module.exports = 
-{
-    async pagRegisterGet(req, res)
-    {
-        res.render('../views/register-view',{user:''});
-    },
-
-    /* async fillHiddenInput (req, res) {
-        
-        
-
-    }, */
+module.exports = {
+  async pagRegisterGet(req, res) {
+    res.render('../views/register-view', { user: '', message: false });
+  },
 
     async userInsert(req, res)
     {
@@ -33,7 +24,6 @@ module.exports =
             }
         );
 
-        res.redirect('/')
-    }
-}
-
+    res.render('../views/index.ejs', { user: '', message:true });
+  },
+};

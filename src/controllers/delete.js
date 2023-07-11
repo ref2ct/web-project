@@ -6,7 +6,7 @@ module.exports =
     {
         const EDV = req.body.edv
         await user.destroy({where:{EDV}})
-        res.redirect('/register')
+        res.render('../views/register-view', { user: '', message: true})
     }
 
 }

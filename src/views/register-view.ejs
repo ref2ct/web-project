@@ -38,6 +38,15 @@
     </header>
 
     <main>
+        <div class="Alert">
+
+            <%if(message){%>
+                <p>
+                    Usuário deletado com sucesso
+                </p>     
+                <%}%>
+        </div>
+                
         <div class="h1-container">
             <h1>Cadastrar endereço</h1>
         </div>
@@ -121,7 +130,7 @@
                         <h3>Deletar</h3>
                     </div>
                     <form action="/delete" method="post">
-                        <input type="password" id="edv" placeholder="Digite seu EDV." name="edv" required/>
+                        <input type="text" id="edv" placeholder="Digite seu EDV." name="edv" required/>
                         <button class="btn" type="submit">Deletar</button>
                     </form>
                 </div>

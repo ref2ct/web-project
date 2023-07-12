@@ -14,33 +14,47 @@ searchButton.addEventListener('click', () => {
     geocoder.geocode(searchInput.value, (results) => {  
         if (results.length === 0) {  
         alert('Endereço não encontrado');  
-        } else {  
+        } else {
         const result = results[0];  
         map.setView(result.center, 16);  
-        
-        
-        var coords = [ [-25.575614852069705, -49.31674699174379], [-26.208648018832783, -50.11266459621588]];
-        filterCoordinates(result.center.lat, result.center.lng, coords)
 
-         
-        if (lastMarker) {  
-            map.removeLayer(lastMarker);  
-        }  
-        lastMarker = L.marker(result.center).addTo(map);  
+
+        // Remove all markers from the map  
+        map.eachLayer(layer => {  
+            if (layer instanceof L.Marker) {  
+            map.removeLayer(layer);  
+            }  
+        });   
+        retrieveCoordinates(result.center.lat, result.center.lng);
+        
+        const redIcon = L.icon({  
+            iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',  
+            iconSize: [25, 41],  
+            iconAnchor: [12, 41],  
+            popupAnchor: [1, -34],  
+            shadowSize: [41, 41]  
+          });  
+            
+          const lastMarker = L.marker(result.center, { icon: redIcon }).addTo(map);
+          
         }  
     });  
 });
 
-users.forEach(user => {
+function retrieveCoordinates(LatitudeCenter, LongitudeCenter) {
+    users.forEach(user => {
 
-    const { Latitude, Longitude, Nome, Telefone, Horario } = user;
+        const { Latitude, Longitude, Nome, Telefone, Horario } = user;
+      
+        if (distance(LatitudeCenter, LongitudeCenter, Latitude, Longitude)<=parseFloat(document.getElementById("radius").value)) {
+            const marker = L.marker([Latitude, Longitude]).addTo(map);
+      
+            marker.bindPopup(`<p>${Nome} <br /> Contato: ${Telefone}<br /> Horario: ${Horario}</p>`);
+        }
+      });
+}
   
-    const marker = L.marker([Latitude, Longitude]).addTo(map);
-  
-    marker.bindPopup(`<p>${Nome} <br /> Contato: ${Telefone}<br /> Horario: ${Horario}</p>`);
-  });
-  
-  
+
 
 function distance(lat1, lon1, lat2, lon2) {  
     const R = 6371;  

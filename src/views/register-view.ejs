@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/css/global.css">
     <link rel="stylesheet" href="/css/register.css">
     <link rel="stylesheet" href="/css/modal.css">
-    <link rel="stylesheet" href="css/map.css">
+    <link rel="stylesheet" href="/css/map.css">
     <title>Cadastrar Carona</title>
 </head>
 
@@ -38,15 +38,13 @@
     </header>
 
     <main>
-        <div class="Alert">
-
-            <%if(message){%>
+        <%if(message){%>
+        <div class="alert">
                 <p>
                     Usuário deletado com sucesso
-                </p>     
-                <%}%>
+                </p>    
         </div>
-                
+        <%}%> 
         <div class="h1-container">
             <h1>Cadastrar endereço</h1>
         </div>
@@ -56,7 +54,7 @@
         <div class="columns">
             <article>
                 <div class="form-container">
-                    <form action="<%=user?'/edit':'/register'%>" method="post">   
+                    <form action="<%=user?'/edit':'/register'%>" method="post" id="user-form">   
                         <label for="nome">Nome: </label>
                         <input type="text" name="nome" value="<%=user?user.Nome :''%>" required>
                         <label for="edv" >EDV: </label>
@@ -80,8 +78,8 @@
                         <label for="horario">Horário: </label>
                         <input type="datetime" name="horario" value="<%=user?user.Horario :''%>" required>
 
-                        <input type="hidden" name="lat" id="lat">
-                        <input type="hidden" name="lon" id="lon">
+                        <input type="hidden" name="lat" id="lat" value="<%=user?user.Latitude :''%>">
+                        <input type="hidden" name="lon" id="lon" value="<%=user?user.Longitude :''%>">
 
                         <div class="submit-btn">
                             <button type="submit" id="cadastrar" class="">Cadastrar</button>

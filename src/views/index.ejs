@@ -33,13 +33,13 @@
     </header>
 
     <main>
-        <div class="Alert">
-            <%if(message){%>
+        <%if(message){%>
+        <div class="alert">
                 <p>
-                    Usuário cadastrado com sucesso
+                    Usuário cadastrado com sucesso!
                 </p>     
-            <%}%>
         </div>
+        <%}%>
         
     </main>
 
@@ -47,11 +47,5 @@
 
     </footer>
     <script src="/js/main.js" ></script>
-    <script>
-        setTimeout(() => {
-            const Alert = document.querySelector(".Alert")
-            Alert.classList.add("hidden")
-        },3000)
-    </script>
 </body>
 </html>

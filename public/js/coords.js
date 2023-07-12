@@ -18,9 +18,12 @@ var inputs = {
     inputs.bairro = document.getElementById("bairro").value;
   }
 
+  var form = document.getElementById('user-form');
+  var submitButton = document.getElementById('cadastrar');
+
   function processInputs() {
     var address = inputs.rua + ' ' + inputs.numero + ', ' + inputs.bairro;
-    fetch('https://nominatim.openstreetmap.org/search?format=json&q=' + encodeURIComponent(address))
+    return fetch('https://nominatim.openstreetmap.org/search?format=json&q=' + encodeURIComponent(address))
       .then(response => response.json())
       .then(data => {
         var result = data[0];
@@ -32,8 +35,6 @@ var inputs = {
           document.getElementById("lat").value = latitude;
           document.getElementById("lon").value = longitude;
 
-          /* console.log(document.getElementById("lat").value);
-          console.log(document.getElementById("lon").value); */
         } else {
           alert('Endereço não encontrado.');
         }
@@ -49,3 +50,10 @@ var inputs = {
   document.getElementById("numero").addEventListener("input", retrieveInputs);
   document.getElementById("bairro").addEventListener("input", retrieveInputs);
   document.getElementById("cadastrar").addEventListener("click", processInputs);
+  
+  submitButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    processInputs().then(function() {
+      form.submit();
+    });
+  });

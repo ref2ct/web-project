@@ -7,3 +7,11 @@ function darkMode() {
     logo.classList.toggle("logo-dark");
     darkModeBtn.classList.toggle("darkmode-btn-dark");
 }
+document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(() => {
+      const alert = document.querySelector(".alert");
+      if (alert) {
+        alert.classList.add("hidden");
+      }
+    }, 3000);
+  });

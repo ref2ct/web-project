@@ -147,16 +147,3 @@ aside {
   } 
 
 }
-
-.Alert{
-  background-color: rgb(173, 209, 173);
-  position: absolute;
-  top: 6rem;
-  border: 1px black;
-  width: 100%;
-  text-align: center;
-  display: block;
-}
-.hidden{
-  display: none;
-}

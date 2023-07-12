@@ -18,7 +18,10 @@ module.exports = {
           Bairro: dados.bairro,
           Telefone: dados.telefone,
           Email: dados.email,
-          Horario: dados.horario
+          Horario: dados.horario,
+          Latitude: dados.lat,
+          Longitude: dados.lon
+
         },
         {
           where: { EDV: dados.edv }
@@ -36,10 +39,10 @@ module.exports = {
     console.log(req.body);
     const u = await user.findOne({
       raw: true,
-      attributes: ['EDV', 'Nome', 'Rua', 'Número', 'Bairro', 'Telefone', 'Email', 'Horario'],
+      attributes: ['EDV', 'Nome', 'Rua', 'Número', 'Bairro', 'Telefone', 'Email', 'Horario', 'Latitude', 'Longitude'],
       where: { EDV }
     });
 
-    res.render('../views/register-view', { user: u });
+    res.render('../views/register-view', { user: u, message: false});
   }
 };

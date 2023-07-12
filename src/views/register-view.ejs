@@ -4,9 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" /> 
     <link rel="stylesheet" href="/css/global.css">
     <link rel="stylesheet" href="/css/register.css">
     <link rel="stylesheet" href="/css/modal.css">
+    <link rel="stylesheet" href="/css/map.css">
     <title>Cadastrar Carona</title>
 </head>
 
@@ -33,41 +38,51 @@
     </header>
 
     <main>
+        <%if(message){%>
+        <div class="alert">
+                <p>
+                    Usuário deletado com sucesso
+                </p>    
+        </div>
+        <%}%> 
         <div class="h1-container">
             <h1>Cadastrar endereço</h1>
         </div>
+
+            <div id="map"></div>
+
         <div class="columns">
             <article>
                 <div class="form-container">
-                    <form action="<%=user?'/edit':'/register'%>" method="post">   
+                    <form action="<%=user?'/edit':'/register'%>" method="post" id="user-form">   
                         <label for="nome">Nome: </label>
-                        <input type="text" name="nome" value="<%=user?user.Nome :''%>">
+                        <input type="text" name="nome" value="<%=user?user.Nome :''%>" required>
                         <label for="edv" >EDV: </label>
-                        <input type="number" name="edv" value="<%=user?user.EDV :''%>">
+                        <input type="number" name="edv" value="<%=user?user.EDV :''%>" required>
                         <label for="rua">Rua: </label>
-                        <input type="text" id="rua" name="rua" value="<%=user?user.Rua :''%>">
+                        <input type="text" id="rua" name="rua" value="<%=user?user.Rua :''%>" required>
                         <div class="adress-area">
                             <div>
                                 <label for="numero">Número: </label>
-                                <input type="number" id="numero" name="numero" value="<%=user?user.Número :''%>">
+                                <input type="number" id="numero" name="numero" value="<%=user?user.Número :''%>" required>
                             </div>
                             <div>
                                 <label for="bairro">Bairro: </label>
-                                <input type="text" id="bairro" name="bairro" value="<%=user?user.Bairro :''%>">
+                                <input type="text" id="bairro" name="bairro" value="<%=user?user.Bairro :''%>" required>
                             </div>
                         </div>                        
                         <label for="contato">Telefone: </label>
-                        <input type="text" name="telefone" value="<%=user?user.Telefone :''%>">
+                        <input type="text" name="telefone" value="<%=user?user.Telefone :''%>" required>
                         <label for="e-mail">E-mail: </label>
-                        <input type="email" name="email" value="<%=user?user.Email :''%>">
+                        <input type="email" name="email" value="<%=user?user.Email :''%>" required>
                         <label for="horario">Horário: </label>
-                        <input type="datetime" name="horario" value="<%=user?user.Horario :''%>">
+                        <input type="datetime" name="horario" value="<%=user?user.Horario :''%>" required>
 
-                        <input type="hidden" name="lat" id="lat">
-                        <input type="hidden" name="lon" id="lon">
+                        <input type="hidden" name="lat" id="lat" value="<%=user?user.Latitude :''%>">
+                        <input type="hidden" name="lon" id="lon" value="<%=user?user.Longitude :''%>">
 
                         <div class="submit-btn">
-                            <button type="submit" class="">Cadastrar</button>
+                            <button type="submit" id="cadastrar" class="">Cadastrar</button>
                         </div>
                     </form>
                 </div>
@@ -95,7 +110,7 @@
                         <h3>Editar</h3>
                     </div>
                     <form action="/edit/search" method="post">
-                        <input type="text" id="edit" placeholder="Digite seu EDV." name="edv"/>
+                        <input type="text" id="edit" placeholder="Digite seu EDV." name="edv" required/>
                         <button class="btn" type="submit">Concluir</button>
                     </form>
                 </div>
@@ -113,7 +128,7 @@
                         <h3>Deletar</h3>
                     </div>
                     <form action="/delete" method="post">
-                        <input type="password" id="edv" placeholder="Digite seu EDV." name="edv"/>
+                        <input type="text" id="edv" placeholder="Digite seu EDV." name="edv" required/>
                         <button class="btn" type="submit">Deletar</button>
                     </form>
                 </div>
@@ -127,6 +142,12 @@
     <footer class="footer" id="footer">
 
     </footer>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>  
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
     <script src="/js/main.js" ></script>
     <script src="/js/modal.js"></script>
     <script src="/js/coords.js"></script>

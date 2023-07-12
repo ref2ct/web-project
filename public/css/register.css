@@ -3,7 +3,7 @@ main {
     display: grid;
     grid-template-columns: 1fr;
     overflow: auto;
-}
+} 
 .columns {
     display: grid;
     grid-template-columns: 2fr 1fr;

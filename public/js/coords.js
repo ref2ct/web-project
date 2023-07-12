@@ -1,28 +1,59 @@
-    var inputs = {
-        rua: '',
-        numero: '',
-        bairro: ''
-    };
+var inputs = {
+    rua: '',
+    numero: '',
+    bairro: ''
+  };
+  var latitude = '';
+  var longitude = '';
 
-    function processInputs() {
-        
-        inputs.rua = document.getElementById("rua").value;
-        inputs.numero = document.getElementById("numero").value;
-        inputs.bairro = document.getElementById("bairro").value;
+  var map = L.map('map').setView([-25.536000696659993, -49.325009770874225], 15);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+  }).addTo(map);
 
-        console.log("Rua: " + inputs.rua);
-        console.log("Número: " + inputs.numero);
-        console.log("Bairro: " + inputs.bairro);
+  function retrieveInputs() {
+    inputs.rua = document.getElementById("rua").value;
+    inputs.numero = document.getElementById("numero").value;
+    inputs.bairro = document.getElementById("bairro").value;
+  }
 
-        //=== Function para localizar coordenadas ===
-        // ...
-        //===========================================
+  var form = document.getElementById('user-form');
+  var submitButton = document.getElementById('cadastrar');
 
-        document.getElementById("lat").value = inputs.rua;
-        document.getElementById("lon").value = inputs.numero;
-    }
+  function processInputs() {
+    var address = inputs.rua + ' ' + inputs.numero + ', ' + inputs.bairro;
+    return fetch('https://nominatim.openstreetmap.org/search?format=json&q=' + encodeURIComponent(address))
+      .then(response => response.json())
+      .then(data => {
+        var result = data[0];
 
-    // Event listeners
-    document.getElementById("rua").addEventListener("input", processInputs);
-    document.getElementById("numero").addEventListener("input", processInputs);
-    document.getElementById("bairro").addEventListener("input", processInputs); 
+        if (result) {
+          latitude = parseFloat(result.lat);
+          longitude = parseFloat(result.lon);
+
+          document.getElementById("lat").value = latitude;
+          document.getElementById("lon").value = longitude;
+
+        } else {
+          alert('Endereço não encontrado.');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Geocoding quebrou!');
+      });
+  }
+
+  // Event listeners
+  document.getElementById("rua").addEventListener("input", retrieveInputs);
+  document.getElementById("numero").addEventListener("input", retrieveInputs);
+  document.getElementById("bairro").addEventListener("input", retrieveInputs);
+  document.getElementById("cadastrar").addEventListener("click", processInputs);
+  
+  submitButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    processInputs().then(function() {
+      form.submit();
+    });
+  });

@@ -1,4 +1,80 @@
-main {
+.main {
+    display: grid;
+    grid-template-columns: 1fr;
     height: 100vh;
     width: 100%;
-}
+    justify-items: center;
+    align-items: center;
+  }
+  
+  .img-wrapper {
+    width: 100%;
+    height: 300px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  .img-long {
+    width: 100%;
+    height: 100%;
+    max-height: inherit;
+  }
+  
+  .btn-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 226px;
+    height: 200px;
+    padding: 1rem;
+    gap: 1rem;
+    box-shadow: 0 0 0.5rem var(--shadow);
+  }
+  
+  .img-card-wrapper {
+    width: 100%;
+    height: 100px;
+  }
+  
+  .img-card {
+    width: 100%;
+    height: 100%;
+    padding: 0.6rem;
+  }
+
+  .a-btn {
+    width: 100%;
+  }
+  .btn {
+    display: block;
+    text-align: center;
+    width: 100%;
+    background-color: var(--background_color);
+    border: 1px solid var(--border-blue-button);
+    color: var(--border-blue-button);
+    }
+    
+    .btn:hover {
+    background-color: var(--input_selected);
+    }  
+  
+  @media only screen and (max-width: 580px) {
+    .img-wrapper {
+      position: relative;
+      overflow: hidden;
+    }
+  
+    .card {
+      width: 80%;
+    }
+  }

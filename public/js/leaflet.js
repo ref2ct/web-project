@@ -26,8 +26,6 @@ searchButton.addEventListener('click', () => {
         if (lastMarker) {  
             map.removeLayer(lastMarker);  
         }  
-
-        
         lastMarker = L.marker(result.center).addTo(map);  
         }  
     });  
@@ -84,8 +82,5 @@ function displayFilteredCoords(coords) {
         var li = document.createElement("li");  
         li.appendChild(document.createTextNode(coords[i][0] + ", " + coords[i][1]));  
         ul.appendChild(li);  
-    }  
-
-
-    
+    }     
 } 
